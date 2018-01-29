@@ -19,7 +19,7 @@ class SimMem(object):
         self.address = 0
         mem = {}
         for idx in range(max_size):
-            mem[idx] = Node(value=None)
+            mem[idx] = ' '
         
         self.memory = mem
 
@@ -29,7 +29,7 @@ class SimMem(object):
 
     def new_node(self, value):
         mem = self.memory
-        mem[self._next_addr()] = Node(value=value)
+        mem[self._next_addr()] = value
         self.memory = mem
 
     @property
@@ -50,8 +50,8 @@ class SimMem(object):
 
     def foot_print(self):
         for i, v in self.memory.items():
-            if v.value:
-                print i, ': ', v.value
+            if v:
+                print i, ': ', v
 
 
 if __name__ == '__main__':
